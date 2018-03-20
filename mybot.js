@@ -8,12 +8,52 @@ client.on('ready', () => {
 
 client.on("guildMemberAdd", member => {
   let guild = member.guild;
-  guild.defaultChannel.sendMessage(`:inbox_tray: The user ${member.user} has joined Cyber Discord Server.`)
+ message.channel.send({embed: {
+    color: 3447003,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Member Joined!",
+    url: "https://discord.gg/GwmHMfE",
+    description: ${member.user}+" has joined Cyber!",
+    fields: [{
+        name: "Username",
+        value: ${member.user}
+      }
+    ],
+    timestamp: new Date(),
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "© GeneratedScript#3909"
+    }
+  }
+});
 });
 
 client.on("guildMemberRemove", member => {
   let guild = member.guild;
-  guild.defaultChannel.sendMessage(`:outbox_tray: The user ${member.user} just left.`)
+  message.channel.send({embed: {
+    color: 3447003,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Member Joined!",
+    url: "https://discord.gg/GwmHMfE",
+    description: ${member.user}+" just left.",
+    fields: [{
+        name: "Username",
+        value: ${member.user}
+      }
+    ],
+    timestamp: new Date(),
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "© GeneratedScript#3909"
+    }
+  }
+});
 });
 
 client.on("guildCreate", guild => {
@@ -30,7 +70,10 @@ client.on('message', message => {
 
 
   if (command === "say") {
-      message.channel.sendMessage(args.join(" "));
+      message.channel.send({embed: {
+  color: 3447003,
+  description: args.join(" ")
+}});
   }
 
   if (command === "butthurt") {
@@ -75,9 +118,15 @@ client.on('message', message => {
     var argresult = args.join(' ');
     if (!argresult) argresult = null;
     client.user.setGame(argresult);
-    message.reply("It has been set..");
+   message.channel.send({embed: {
+  color: 3447003,
+  description: "Set!"
+}});
     } else {
-      message.reply("DONT EVEN TRY IT BOI!");
+     message.channel.send({embed: {
+  color: 3447003,
+  description: "boi dont even try it"
+}});
     }
   }
 
@@ -92,9 +141,15 @@ let member = message.mentions.users.first();
     if (message.author.id == "223557159151992832") {
     var argresult = args.join(' ');
     client.user.setStatus(argresult);
-    message.reply("It has been set..");
+    message.channel.send({embed: {
+  color: 3447003,
+  description: "Set!"
+}});
     } else {
-      message.reply("DONT EVEN TRY IT BOI!");
+     message.channel.send({embed: {
+  color: 3447003,
+  description: "boi dont even try it"
+}});
     }
   }
 
@@ -128,18 +183,29 @@ if (command === "cusannounce") {
   
 
   if (command === "ping") {
-    message.channel.sendMessage("pong!")
+    message.channel.send({embed: {
+  color: 3447003,
+  description: "Pong!"
+}});
   }
 
   if (command === "help") {
-    message.author.sendMessage("Announce - admin - Announces whatever you want it to say. Usage is... >announce (your message)\n cusannounce - admin - Same as announcement, but the usage is.. >cusannounce <title>-<description>-<URL(Optional)>\n 8ball - misc - Makes an inference of what you put after 8ball\n roll - misc - Chooses a random number\n ban - admin - Bans a user - Has to have  'bot-logs' channel\n kick - admin - Kicks a user - Has to have  'bot-logs' channel\n mute - admin - Has to have  'bot-logs' channel \n ping - misc - tests the speed of the bot. \n say - misc - repeats after what you put after it.\n help - misc - Obvious..\n lockdown - admin - Locks a specific channel, so people without roles cannot talk in the channel till the lockdown us lifted. Usage is... >lockdown <milliseconds> \n warn - admin - Wans a user. \n mydinfo - Tells **_YOUR_** info. Usage... >mydinfo");
-    message.reply("Check your DMs.")
-  }
+    message.author.sendMessage({embed: {
+  color: 3447003,
+  description: "Announce - admin - Announces whatever you want it to say. Usage is... >announce (your message)\n cusannounce - admin - Same as announcement, but the usage is.. >cusannounce <title>-<description>-<URL(Optional)>\n 8ball - misc - Makes an inference of what you put after 8ball\n roll - misc - Chooses a random number\n ban - admin - Bans a user - Has to have  'bot-logs' channel\n kick - admin - Kicks a user - Has to have  'bot-logs' channel\n mute - admin - Has to have  'bot-logs' channel \n ping - misc - tests the speed of the bot. \n say - misc - repeats after what you put after it.\n help - misc - Obvious..\n lockdown - admin - Locks a specific channel, so people without roles cannot talk in the channel till the lockdown us lifted. Usage is... >lockdown <milliseconds> \n warn - admin - Wans a user. \n mydinfo - Tells **_YOUR_** info. Usage... >mydinfo"
+}});
+message.channel.send({embed: {
+  color: 3447003,
+  description: "A message has been sent to your DMs!"
+}});  }
 
 
 
   if (command === "kms") {
-    message.channel.sendMessage(`The nibba owner doesn't approve of death. You could just quit the internet. :/`)
+   message.channel.send({embed: {
+  color: 3447003,
+  description: `The nibba owner doesn't approve of death. You could just quit the internet. :/`
+}});
   }
 
   if (command == "eval") {
@@ -159,11 +225,23 @@ if (command === "cusannounce") {
 
   if (command === "8ball") {
    var ball = ['Yes','No doubt about it','Try again','Signs point to yes','I say no','No chance','Dont think so'];
-   message.channel.sendMessage("🎱 | **"+ball[Math.floor(Math.random () * ball.length)]+"** | "+message.author);
+   color: 3447003,
+  description: "🎱 | **"+ball[Math.floor(Math.random () * ball.length)]+"** | "+message.author
+}});
   }
 
 if (command === "roll") {
-  message.channel.sendMessage(Math.floor(Math.random() * 100));
+ message.channel.send({embed: {
+  color: 3447003,
+  description: (Math.floor(Math.random() * 100))
+}});
+}
+
+if (command === "whitelist") {
+ message.channel.send({embed: {
+  color: 3447003,
+  description: "This is still a work in progress."
+}});
 }
 
 if (command === "mute") {
