@@ -4,12 +4,8 @@
   "description": "",
   "main": "mybot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node mybot.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "discord.js": "^11.2.1"
   }
