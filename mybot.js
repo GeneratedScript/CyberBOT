@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+var PastebinAPI = require('pastebin-js'),
+pastebin = new PastebinAPI('devkey');
 const prefix = ">"
 client.on('ready', () => {
  
@@ -237,11 +239,56 @@ if (command === "roll") {
 }});
 }
 
-if (command === "whitelist") {
- message.channel.send({embed: {
-  color: 3447003,
-  description: "This is still a work in progress."
-}});
+if (command === "wls") {
+ var HWID = args.join(' ');
+ var whitelisted = ['1','123','4123','1245','12341','123','41','55','231','52','16','sex','16','sexy','lol','lmao'];
+ var blacklisted = ['666','777'];
+ if (whitelisted.content.includes(HWID)){
+  message.channel.send({embed: {
+    color: 3447003,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Whitelist Status",
+    url: "https://discord.gg/GwmHMfE",
+    description: "Information on your HWID.",
+    fields: [{
+        name: "Status",
+        value: HWID + " is **whitelisted**."
+      }
+    ],
+    timestamp: new Date(),
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "© GeneratedScript#3909"
+    }
+  }
+});
+ } else {
+ if (!whitelisted.content.includes(HWID)){
+  message.channel.send({embed: {
+    color: 3447003,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Whitelist Status",
+    url: "https://discord.gg/GwmHMfE",
+    description: "Information on your HWID.",
+    fields: [{
+        name: "Status",
+        value: HWID + " is **not whitelist**."
+      }
+    ],
+    timestamp: new Date(),
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "© GeneratedScript#3909"
+    }
+  }
+});
+ }
 }
 
 if (command === "mute") {
